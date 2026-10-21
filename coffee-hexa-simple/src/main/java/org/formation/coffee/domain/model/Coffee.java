@@ -25,6 +25,11 @@ public final class Coffee {
         return new Coffee(null, name, price, List.of());
     }
 
+    public static Coffee reconstitute(CoffeeId id, String name, Price price, List<Review> reviews)
+    {
+        return new Coffee(Objects.requireNonNull(id, "id must not be null"), name, price, reviews);
+    }
+
     public void rename(String newName) {
         this.name = requireValidName(newName);
     }
